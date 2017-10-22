@@ -28,9 +28,9 @@ struct Args {
 }
 
 fn main() {
-  let args: Args = Docopt::new(USAGE)
-							.and_then(|d| d.deserialize())
-							.unwrap_or_else(|e| e.exit());
+	let args: Args = Docopt::new(USAGE)
+					.and_then(|d| d.deserialize())
+					.unwrap_or_else(|e| e.exit());
 	if args.flag_server {
 		match server::server(&(args.flag_ip+":"+&args.flag_port)){
         	Ok(_) => return,
