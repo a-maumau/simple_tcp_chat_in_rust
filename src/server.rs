@@ -3,7 +3,7 @@ use std::thread;
 use std::io::{Read, Write};
 use std::io;
 
-fn server(open_addr : &str) -> io::Result<()> {
+pub fn server(open_addr : &str) -> io::Result<()> {
     let lis = try!(TcpListener::bind(open_addr));
     println!("started on {:?}", lis);
     for stream in lis.incoming() {

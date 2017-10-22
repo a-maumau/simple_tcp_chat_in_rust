@@ -1,5 +1,5 @@
 [package]
-name = "simpleTCPChat"
+name = "simple_chat"
 version = "0.1.0"
 authors = ["maumau <maumaumaumaumaumaumaumaumaumau@gmail.com>"]
 

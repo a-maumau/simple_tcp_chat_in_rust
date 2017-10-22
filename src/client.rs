@@ -2,7 +2,7 @@ use std::io::prelude::*;
 use std::net::TcpStream;
 use std::io;
 
-fn client(server_addr : &str){
+pub fn client(server_addr : &str){
     if let Ok(mut stream) = TcpStream::connect(server_addr){
         println!("Connected.");
         print!(">");
