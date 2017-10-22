@@ -1,0 +1,9 @@
+[package]
+name = "simpleTCPChat"
+version = "0.1.0"
+authors = ["maumau <maumaumaumaumaumaumaumaumaumau@gmail.com>"]
+
+[dependencies]
+docopt = "*"
+serde = "1.0"
+serde_derive = "1.0"
