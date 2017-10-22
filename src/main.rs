@@ -3,8 +3,6 @@ extern crate serde_derive;
 extern crate docopt;
 
 use docopt::Docopt;
-use std::io;
-
 mod server;
 mod client;
 
@@ -35,12 +33,13 @@ fn main() {
 							.unwrap_or_else(|e| e.exit());
 	if args.flag_server {
 		match server::server(&(args.flag_ip+":"+&args.flag_port)){
-        Ok(_) => return,
-        Err(e) =>println!("{:?}", e)
-    }
-		println!("yeee");
+        	Ok(_) => return,
+        	Err(e) => println!("{:?}", e)
+    	}
 	}else{
-		client::client(&(args.flag_ip+":"+&args.flag_port));
-		println!("aaa");
+		match client::client(&(args.flag_ip+":"+&args.flag_port)){
+			Ok(_) => return,
+        	Err(e) => println!("{:?}", e)
+		}
 	}
 }
