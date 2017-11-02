@@ -33,13 +33,13 @@ fn main() {
 					.unwrap_or_else(|e| e.exit());
 	if args.flag_server {
 		match server::server(&(args.flag_ip+":"+&args.flag_port)){
-        	Ok(_) => return,
-        	Err(e) => println!("{:?}", e)
-    	}
+			Ok(_) => return,
+			Err(e) => println!("{:?}", e)
+		}
 	}else{
 		match client::client(&(args.flag_ip+":"+&args.flag_port)){
 			Ok(_) => return,
-        	Err(e) => println!("{:?}", e)
+			Err(e) => println!("{:?}", e)
 		}
 	}
 }

@@ -3,8 +3,7 @@ use std::net::TcpStream;
 use std::io;
 
 pub fn client(server_addr : &str) -> io::Result<()>{
-    let server = TcpStream::connect(server_addr);
-    let mut stream = server.unwrap();
+    let mut server = TcpStream::connect(server_addr).expect("Could not establish Conecction");
     println!("Connected.");
     print!(">");
     io::stdout().flush();
@@ -12,7 +11,7 @@ pub fn client(server_addr : &str) -> io::Result<()>{
         let mut input = String::new();
         io::stdin().read_line(&mut input).expect("failed to read line");
         // trim() for erasing '\n'
-        match stream.write(input.trim().as_bytes()){
+        match server.write(input.trim().as_bytes()){
             Ok(_) => {
                 print!(">");
                 io::stdout().flush();
